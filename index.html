@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+     button {
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      margin: 5px;
+      color: white;
+      border-radius: 4px;
+      background-color: black;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+      /* box-shadow: rgba(218, 223, 118, 0.805) 0px 50px 100px -20px, rgba(217, 227, 24, 0.886) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+    }
+    .cal{
+        border: 8px solid black;
+        height: 280px;
+        width: 260px;
+        padding: 5px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+      border-radius: 15px;
+      margin: 20px;
+    }
+   .cal input{
+        width: 90%;
+        height: 30px;
+        background-color: #f5ec42;
+        margin-left: 7px;
+        font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+<div class="cal">
+  <input type="text" id="display" disabled>
+  <br>
+  <button onclick="appendToDisplay('1')">1</button>
+  <button onclick="appendToDisplay('2')">2</button>
+  <button onclick="appendToDisplay('3')">3</button>
+  <button onclick="appendToDisplay('+')">+</button>
+  <br>
+  <button onclick="appendToDisplay('4')">4</button>
+  <button onclick="appendToDisplay('5')">5</button>
+  <button onclick="appendToDisplay('6')">6</button>
+  <button onclick="appendToDisplay('-')">-</button>
+  <br>
+  <button onclick="appendToDisplay('7')">7</button>
+  <button onclick="appendToDisplay('8')">8</button>
+  <button onclick="appendToDisplay('9')">9</button>
+  <button onclick="appendToDisplay('*')">*</button>
+  <br>
+  <button onclick="appendToDisplay('0')">0</button>
+  <button onclick="clearDisplay()">C</button>
+  <button onclick="calculateResult()">=</button>
+  <button onclick="appendToDisplay('/')">/</button>
+</div>
+  <script>
+    function appendToDisplay(value) {
+      document.getElementById('display').value += value;
+    }
+
+    function clearDisplay() {
+      document.getElementById('display').value = '';
+    }
+
+    function calculateResult() {
+      try {
+        document.getElementById('display').value = eval(document.getElementById('display').value);
+      } catch (error) {
+        document.getElementById('display').value = 'Error';
+      }
+    }
+  </script>
+
+</body>
+</html>
